@@ -4,5 +4,11 @@
 # Jupyter
 .ipynb_checkpoints/
 
+# Raw GLEIF Golden Copy download (too large for the repository)
+*gleif-goldencopy*.zip
+
+# The project dataset must be tracked (a global gitignore excludes *.csv)
+!lei_switzerland.csv
+
 # OS files
 .DS_Store
