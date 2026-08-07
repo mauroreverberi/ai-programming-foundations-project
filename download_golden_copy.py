@@ -24,8 +24,8 @@ def download(url):
     """Download the file into the current directory with a simple progress display."""
     filename = url.split("/")[-1]
 
-    # callback for urlretrieve, gets called after every downloaded block
     def show_progress(blocks, block_size, total_size):
+        """Print the progress in percent, urlretrieve calls this after every block."""
         percent = blocks * block_size * 100 // total_size
         if percent > 100:  # the last block can push it over 100
             percent = 100
