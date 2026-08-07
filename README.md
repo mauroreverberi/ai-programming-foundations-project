@@ -12,7 +12,7 @@ compliance checks.
 - A download script (`download_golden_copy.py`) that fetches the latest
   GLEIF Golden Copy file (around 500 MB).
 - A preprocessing script (`prepare_dataset.py`) that reproduces the dataset
-  subset (`lei_switzerland.csv`, around 28k rows × 12 columns) from the official
+  subset (`lei_switzerland.csv`, around 28k rows x 12 columns) from the official
   GLEIF source.
 
 ## Dataset
@@ -35,7 +35,7 @@ give slightly different numbers than the snapshot used in this project.
 TODO
 
 ## Dependencies
-`requirements.txt` was created inside the project's dedicated virtual
+`requirements.txt` was created inside the project's own virtual
 environment with:
 ```
 pip freeze > requirements.txt
