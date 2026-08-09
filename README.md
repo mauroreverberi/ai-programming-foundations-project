@@ -76,9 +76,9 @@ checks automatically.
 The biggest risk in this project is the name normalization. If I normalize
 too aggressively, different companies get merged into one, and if I
 normalize too little, the same company is counted several times. My
-duplicate check showed both sides of this: 65 extra duplicate candidates
-appeared after normalization, but some of them (like generic fund names)
-are probably different entities. A real duplicate check would also have to
+duplicate check showed both sides of this: after normalization 65
+additional rows repeat a name that already exists, but some of these
+matches (like generic fund names) probably belong to different entities. A real duplicate check would also have to
 compare the legal form and the address, the name alone is only a first
 hint. The effect is also not equal for everyone,
 because umlauts and French or Italian accents are only common in some
@@ -96,17 +96,19 @@ that stop the pipeline when something looks wrong. The EDA results would
 directly guide the setup: with 54% of the entities in one legal form and
 27% lapsed registrations, I would have to make sure that the small groups
 do not get lost when splitting the data into training and test sets. I
-also could not judge a model by accuracy alone, because a model that
-always predicts the biggest group would already look 73% correct without
-learning anything.
+also could not judge a model by accuracy alone: if the task is to predict
+lapsed versus not lapsed, a model that always says "not lapsed" would
+already look 73% correct without learning anything.
 
 ### How does this prepare for neural network projects?
 The normalized name column is exactly the input that a name-matching model
 needs: multilingual company names with a consistent and reproducible
-preprocessing. The 209 duplicate candidates from the normalization are a
-natural starting point for building training pairs. And because the whole
-ingestion is scripted, I can rebuild the same data snapshot later, which I
-need when I want to compare model runs against each other.
+preprocessing. The 209 rows whose normalized name already appears in an
+earlier row are a natural starting point for building training pairs. The committed CSV
+preserves the exact snapshot I analyzed, and the scripts document how it
+was built, so I can prepare a newer Golden Copy in the same way. For
+comparing model runs against each other I would always work with such a
+fixed snapshot.
 
 ### What is the agentic automation potential?
 Every step in this workflow is already a small, documented function for
