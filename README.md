@@ -1,5 +1,8 @@
 # AI Programming Foundations Project: Swiss LEI Data Workflow
 
+**GitHub repository:** https://github.com/mauroreverberi/ai-programming-foundations-project
+(all commits and the `develop` branch as well as the `main` branch are visible there)
+
 ## Project Description
 In this project I build a reproducible data workflow for the Legal Entity
 Identifier (LEI) data published by GLEIF, filtered down to entities registered
